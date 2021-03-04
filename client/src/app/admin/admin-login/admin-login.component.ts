@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/admin/auth.service';
 export class Log{
@@ -12,17 +13,19 @@ export class Log{
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
- log: any;
- verify:any;
+  log: any;
+  verify:any;
+  loginForm:any;
+
   constructor(public api: AuthService,
-    private router:Router
+    private router:Router,
     ) { 
     this.log = new Log();
   }
 
   login() {
-    this.log.email = 'rohit.ranjan@sitanet.in'
-    this.log.password = '12345'
+    // this.log.email = 'rohit.ranjan@sitanet.in'
+    // this.log.password = '12345'
     this.api.postData('login', this.log).subscribe( (res:any) => {
         localStorage.setItem('token', res.token)
         this.router.navigate(['/admin/dashboard']);
@@ -30,6 +33,8 @@ export class AdminLoginComponent implements OnInit {
       console.log(err)
     })
   }
+
+
   ngOnInit(): void {
     let token;
    token =  localStorage.getItem('token')
@@ -44,6 +49,7 @@ export class AdminLoginComponent implements OnInit {
       console.log(err)
     })
    }
+
   }
 
 }

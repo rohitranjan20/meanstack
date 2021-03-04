@@ -8,6 +8,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { CategoryComponent } from './admin/category/category.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [Title],
