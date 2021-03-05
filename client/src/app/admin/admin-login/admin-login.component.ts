@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/admin/auth.service';
+import { AdminService } from '../admin.service';
 export class Log{
   email: any;
   password: any;
@@ -17,7 +17,9 @@ export class AdminLoginComponent implements OnInit {
   verify:any;
   loginForm:any;
 
-  constructor(public api: AuthService,
+  
+
+  constructor(public api: AdminService,
     private router:Router,
     ) { 
     this.log = new Log();
